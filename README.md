@@ -54,6 +54,6 @@ V1 (14 September 2024)
 --------------------
 - First release
 
-V1.1 (21st August 2024)
+V1.1 (21st September 2024)
 --------------------
 - If user select a password with less than 14 characters, it'll be shown as weak criteria
