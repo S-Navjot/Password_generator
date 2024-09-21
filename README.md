@@ -50,7 +50,7 @@ Working on :
 
 ### Versions
 
-V1 (14 September 2024)
+V1 (14th September 2024)
 --------------------
 - First release
 
