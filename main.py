@@ -79,9 +79,11 @@ print("""Welcome in this Password Generator !
 
 def main(): #Main function
     while True:
+        clear_screen()
         choice = get_valid_choice()
         special_characters = '1' if choice == '1' or choice == '3' else '0'
-        number = random.randrange(20, 30) if choice == '3' else number_characters()   
+        number = random.randrange(20, 30) if choice == '3' else number_characters()
+        
         while True:
             password_generated = generate_password(number, special_characters)
             if strong_password(password_generated):
@@ -89,11 +91,16 @@ def main(): #Main function
                 write_password_in_file(password_generated)
                 break
             else:
-                regenerate = input(f"\nPassword is weak ({password_generated}). Regenerate? Press 1 for yes, any other key for no: ")
-                if regenerate != '1':
+                regenerate = input(f"\nPassword is weak ({password_generated}). Do you want to regenerate? Press 1 for yes, any other key for no: ")
+                if regenerate == '1':
+                    number = number_characters()
+                    special_characters = '1' if choice == '1' or choice == '3' else '0'
+                    continue
+                else:
                     print(f"\nPassword generated: {password_generated}")
                     write_password_in_file(password_generated)
-                    break  
-        break
+                    break 
+        break  
+
     
 main()
