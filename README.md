@@ -57,3 +57,9 @@ V1 (14th September 2024)
 V1.1 (21st September 2024)
 --------------------
 - If user select a password with less than 14 characters, it'll be shown as weak criteria
+
+V1.2 (24 September 2024)
+--------------------
+- User can now select between different generation choices
+- Password is now stock in a txt file under same directory
+- Display changing
