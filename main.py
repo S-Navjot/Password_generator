@@ -69,13 +69,13 @@ def main():
     special_caracters = is_special_caracters()
     password_generated = generate_password(number, special_caracters)
     if strong_password(password_generated):
-        print(password_generated)
+        print(f"Password generated : ",password_generated)
         pass
     else:
         regenerate = input(f"\nSince password is weak {password_generated}, do you want to regenerate a new one? Press 1 for yes, other character for no : ")
         if regenerate == '1':
             main()
         else:
-            print(password_generated)
+            print(f"Password generated : ",password_generated)
 
 main()
