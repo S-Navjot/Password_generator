@@ -3,6 +3,7 @@ import os
 import string
 import re
 import random
+import time
 
 NUMBER_CHARACTER_MINIMUM = 14
 
@@ -12,7 +13,6 @@ def clear_screen(): #Clear terminal on Windows/Linux/Mac
 def get_valid_choice():#Function to choose password criteria. (if the user need special character, if the user want to generate a secure password.)
     choice = ''
     while choice not in ['1', '2', '3']:
-        clear_screen()
         choice = input("""Select your option:
         \n1 - Special characters included
         \n2 - No special characters
@@ -23,7 +23,7 @@ def get_valid_choice():#Function to choose password criteria. (if the user need 
 def number_characters(): #If the user selects option 1 or 2 on previous function, he has to choose the number of characters he wants. If number of characters is under 14, a security message is displayed and the user need to validate his choice
     while True:
         try:
-            user_number_carac = int(input("Enter number of characters you want to have in your password : "))
+            user_number_carac = int(input("\nEnter number of characters you want to have in your password : "))
             if user_number_carac < 14:
                 final_choice = int(input(f"""\nPassword should not have less than {NUMBER_CHARACTER_MINIMUM} characters. Are you sure you want to continue ? 
                                          \nPress 1 if you want to keep a password with {user_number_carac} characters, other characters if you want to change it : """))
@@ -73,13 +73,13 @@ def write_password_in_file(password): #Generate a txt file in the script locatio
         f.write(password)
         print(f"Password succefully generated in {file_path} file.")
 
-print("""Welcome in this Password Generator !
-        \nGithub : https://github.com/S-Navjot/Password_generator/blob/main/main.py
-        """)
-
 def main(): #Main function
     while True:
         clear_screen()
+        print("""Welcome in this Password Generator !
+        \nGithub : https://github.com/S-Navjot/Password_generator/blob/main/main.py
+        \nAuthor : S-Navjot (https://github.com/S-Navjot)
+              """)
         choice = get_valid_choice()
         special_characters = '1' if choice == '1' or choice == '3' else '0'
         number = random.randrange(20, 30) if choice == '3' else number_characters()
@@ -101,6 +101,5 @@ def main(): #Main function
                     write_password_in_file(password_generated)
                     break 
         break  
-
     
 main()
